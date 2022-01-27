@@ -1,0 +1,81 @@
+.navbar{
+    background-color: #0c2f59;
+    height: 70px;
+    // width: 200px;
+    border-bottom-style: solid;
+      border-color: red;
+}
+.title{
+    padding: 5px;
+    margin: 30px;
+
+}
+.searchContainer{
+    background-color: #e8ebef;
+    height: 50px;
+    // margin: 30px;
+    .fas{
+        color: #aed9f8;
+    }
+
+}
+.icon {
+    padding-left: 25px;
+    background: url("https://w7.pngwing.com/pngs/739/726/png-transparent-computer-icons-magnifying-glass-stags.png") no-repeat right;
+    background-size: 20px;
+  }
+  .openModal{
+      color: #aed9f8;
+      cursor: pointer;
+  }
+table{
+    // margin: 30px;
+    .total{
+        display:flex;
+        justify-content: right;
+        align-items: right;
+        text-align: right;
+        padding:10px;
+
+    }
+    .rectangle{
+        width: 26px;
+        height: 16px;
+        background-color: rgb(53, 223, 166);
+    flex-direction: column;
+        
+    }
+    .tr{
+        padding: 10px;
+        margin: 30px;
+        background-color:aliceblue;
+
+    }
+}
+.form{
+    display: flex;
+}
+modal{
+    .modal-header{
+        border: 0;
+    }
+    .modal-footer{
+        border: 0;
+    }
+   
+    .modal-header{
+    border: 0;
+    }
+   
+}
+.modal-footer{
+    border: 0;
+};
+.btn-primary{
+    background-color: #aed9f8;
+    }
+.close{
+    color: #aed9f8;
+
+}
+

@@ -1,0 +1,94 @@
+<nav class="navbar " aria-label="First navbar example"></nav>
+
+<div class="title">
+    <h5>Financial Management * CAPEX Management</h5>
+    <h1>CEMEX Go Online Stores</h1>
+</div>
+<div class="searchContainer">
+  <input #searchText type="text" class="icon" placeholder="Search for Name" (keyup)="onSearch(searchText.value)" >
+  <span (click)="open(modal)" class="openModal"><i class="fas fa-filter"></i>Filters  </span>
+</div>
+<section>
+  <div class="total">
+    <h5>Total: {{totalSum(1) | currency }}  USD</h5>
+  </div>
+    <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Supplier Name</th>
+            <th scope="col">Month</th>
+            <th scope="col">Phase</th>
+            <th scope="col">Internal Order</th>
+            <th scope="col">Amount(USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of displayData">
+            <td><div class="rectangle"></div>{{data.status}}</td>
+            <td>{{data.supplierName}}</td>
+            <td>{{data.month}}</td>
+            <td>{{data.phase}}</td>
+            <td>{{data.internalOrder}}</td>
+            <td>{{data.amount | currency}}</td>
+          </tr>
+        </tbody>
+      </table>
+</section>
+
+
+
+<ng-template #modal let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Filter Expenses</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">       
+    <form  [formGroup]="Form" id="Form">
+      <span>Status</span>
+      <div class="form-row">
+        <div class="form-group col-4">
+          <input class="form-check-input" type="checkbox" value="" id="active">
+          <label class="form-check-label" for="active">Active</label>
+        </div>
+        <div class="form-group col-4">
+          <input class="form-check-input" type="checkbox" value="" id="approval">
+          <label class="form-check-label" for="approval">Pending Approval</label>
+        </div>
+        <div class="form-group col-4">
+          <input class="form-check-input" type="checkbox" value="" id="waiting">
+          <label class="form-check-label" for="waiting">Waiting Compensation</label>
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputState">Phase</label>
+          <select class="form-control" id="phase" formControlName="phase" >
+            <option value="default">Select one or more phases</option>
+            <option *ngFor="let c of DataList" [ngValue]="c">{{c.phase}}</option>
+        </select>
+        
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Month</label>
+          <select class="form-control" id="phase" formControlName="month" >
+            <option value="default">Select one or more months</option>
+            <option *ngFor="let c of DataList" [ngValue]="c">{{c.month}}</option>
+        </select>
+         
+        </div>
+      </div>
+    </form>
+   
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark"   (click)="modal.dismiss('Cross click')">Cancel</button>
+        <button  class="btn btn-primary" (click)="filter('Research')" (click)="modal.dismiss('Cross click')">Apply</button>
+      </div>
+  </div>
+ 
+
+</ng-template>
