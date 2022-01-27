@@ -90,6 +90,7 @@ export class HomeComponent implements OnInit {
        console.log(name);
       //  this.displayData = this.DataList.filter(data => data.supplierName === name)
 
+      
      }
    }
   //  console.log(this.DataList.supplierName);
