@@ -1,10 +1,10 @@
 #  Cemex FrontEnd Exercise
-This is a test project to implement a FrontEnd Angular application that shows and filters data
+This is a test project to implement a FrontEnd Angular application that shows and filters data.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.4.
 
 ## Development server
-Clone the repo https://github.com/ralo44/FrontEndCemex/ cd FrontEndCemex ```
+Clone the repo https://github.com/ralo44/FrontEndCemex/ cd FrontEndCemex
 
 Install npm packages `npm install` packages described in the `package.json` and verify that it works.
 
