@@ -16,20 +16,20 @@ export class HomeComponent implements OnInit {
 
   // ngmodal
   closeResult = '';
+
   constructor(
-    private modalService: NgbModal,
-    private fb: FormBuilder,
-  ) { 
-    this.Form = this.fb.group({
+            private modalService: NgbModal,
+            private fb: FormBuilder,
+            ) { 
+    this.Form = this.fb.group({//create form
       status: [''],
       phase: [''],
       month: [''],
     })
+    // new Array to display filtered data
     this.displayData = [... this.DataList]
-// console.log(this.Form.value(status));
-}
+  }
   
-
   ngOnInit(): void {
   }
   //openmodal
@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+  // Main array
   DataList:any = [
     {id:1,status:'Active', supplierName:'Jakub Zavazal', month:'March', phase:'Deployment', internalOrder:'1223341', amount:5121},
     {id:2,status:'Active', supplierName:'Jonathan Holden', month:'April', phase:'Research', internalOrder:'24565334', amount:5121},
@@ -57,28 +58,16 @@ export class HomeComponent implements OnInit {
     {id:5,status:'Waiting Compensation', supplierName:'Aleksey Romanyuk', month:'February', phase:'Development', internalOrder:'2334987', amount:5120},
     {id:6,status:'Waiting Compensation', supplierName:'Carlos Francisco Rosas Ceballos', month:'April', phase:'Research', internalOrder:'2356780', amount:5300},
   ]
-  totalSum(index: number){
+  totalSum(index: number){//get total 
     let sum = 0
     for (let i = 0; i < this.displayData.length; i++) {
          sum += this.DataList[i].amount
     }
     return  sum
   }
-  // onSearch(value:string){
-  //   console.log(value);
-  //   let name = this.DataList.supplierName
-  //   if (name.indexOf(value) !== -1) {
-      
-  //   this.displayData = this.DataList.filter(data => data.name === value )
 
-  //     console.log(this.displayData);
-  //     }
-  // }
-
-
-  filter(phase){
+   filter(phase){
     this.displayData = this.DataList.filter(data => data.phase === phase )
-    // console.log(this.displayData);
   }
 
   onSearch(value:string){
@@ -88,11 +77,7 @@ export class HomeComponent implements OnInit {
      let name = data.supplierName.toLowerCase()
      if(name.indexOf(texto) != -1){
        console.log(name);
-      //  this.displayData = this.DataList.filter(data => data.supplierName === name)
-
-      
      }
    }
-  //  console.log(this.DataList.supplierName);
   }
 }

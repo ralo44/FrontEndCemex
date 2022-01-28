@@ -1,30 +1,23 @@
 .navbar{
     background-color: #0c2f59;
     height: 70px;
-    // width: 200px;
     border-bottom-style: solid;
     border-color: red;
 }
 .title{
     padding: 5px;
     margin: 30px;
-
 }
 .container{
     margin: 0 30px; 
-    
 }
 .searchContainer{
     background-color: #e8ebef;
     height: 50px;
     padding: 1% 10px;
-    // padding: 1em;
-
-    // margin: 30px;
     .fas{
         color: #aed9f8;
     }
-
 }
 .icon {
     padding-left: 25px;
@@ -39,51 +32,33 @@
       padding: 1em;
   }
   .total{
-    // display:flex;
-    // justify-content: right;
-    // align-items: right;
-    // text-align: right;
     text-align: right;
     padding:10px;
-
 }
-.table{
-    // margin: 30px;
-    
-    .rectangle{
-        width: 26px;
-        height: 16px;
-        background-color: rgb(53, 223, 166);
-        margin: 0 0;
-    // flex-direction: column;
-    
-
-        
-    }
-   
+.rectangle{
+    width: 26px;
+    height: 16px;
+    background-color: rgb(53, 223, 166);
+    margin: 0 0;
 }
 .tr{
     padding: 1em;
     margin: 1px 30px;
-    // background-color:aliceblue;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
 }
-
 .form{
     display: flex;
 }
-modal{
+.modal{
     .modal-header{
         border: 0;
     }
     .modal-footer{
         border: 0;
     }
-   
     .modal-header{
     border: 0;
     }
-   
 }
 .modal-footer{
     border: 0;
@@ -98,8 +73,15 @@ modal{
 .checkbox-inline{
     padding: 10px 20px 30px 0;
 }
-@media(max-width:570px){
-    .table{
-       
+$status:'Active';
+.rectangle{
+    @if $status == 'Active'{
+        background-color:green;
+    }
+    @else if $status == 'Pending Approval'{
+        background-color: blue;
+    }
+    @else if $status == 'Waiting Compensation'{
+        background-color: orange;
     }
 }
