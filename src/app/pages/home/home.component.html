@@ -57,43 +57,43 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="Form" id="Form">
+
+
+
+    <form [formGroup]="Form" (ngSubmit)="onSubmit()"id="Form">
       <span>Status</span>
-      <div class="form-row">
+      <div class="form-row"  >
         <label class="checkbox-inline">
-          <input type="checkbox" id="Active" value="Active"> Active
+          <input type="checkbox" id="Active"  value="status" formControlName="status"> Active
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" id="Pending Approval" value="Pending Approval"> Pending Approval
+          <input type="checkbox" id="Pending Approval" value="Pending Approval" formControlName="status"> Pending Approval
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" id="Waiting Compensation" value="Waiting Compensation"> Waiting Compensation
+          <input type="checkbox" id="Waiting Compensation" value="Waiting Compensation" formControlName="status"> Waiting Compensation
         </label>
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="inputState">Phase</label>
           <select class="form-select" id="phase" formControlName="phase">
-            <option value="default">Select one or more phases</option>
-            <option value="Deployment"> Deployment</option>
-            <option value="Development"> Development</option>
-            <option value="Research"> Research</option>
+            <option value="" selected>Select one or more phases</option>
+            <option *ngFor="let p of DataList" [ngValue]="p.phase">{{p.phase }}</option>
+            <!-- <option value="Research">Research</option> -->
           </select>
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">Month</label>
-          <select class="form-select" id="month" formControlName="month">
-            <option value="default">Select one or more months</option>
-            <option value="February"> February</option>
-            <option value="March"> March </option>
-            <option value="April"> April </option>
-          </select>
+          <select class="form-select" id="month" formControlName="month" >
+            <option value="" selected>Select one or more months</option>
+            <option *ngFor="let m of DataList" [ngValue]="m.month">{{m.month}}</option> -->
+           </select>
         </div>
       </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary"  (click)="modal.dismiss('Cross click')">Apply</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
+      </div>
     </form>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
-      <button class="btn btn-primary" (click)="filter('Research')" (click)="modal.dismiss('Cross click')">Apply</button>
-    </div>
   </div>
 </ng-template>

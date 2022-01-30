@@ -1,5 +1,6 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder,  FormGroup, Validators } from '@angular/forms';
 
 
 import {  NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -21,14 +22,19 @@ export class HomeComponent implements OnInit {
             private modalService: NgbModal,
             private fb: FormBuilder,
             ) { 
+
+    
     this.Form = this.fb.group({//create form
-      status: [''],
+      // status: [[false, false, true]],
+      status:[''],
       phase: [''],
       month: [''],
     })
+    
     // new Array to display filtered data
     this.displayData = [... this.DataList]
   }
+  
   
   ngOnInit(): void {
   }
@@ -65,19 +71,23 @@ export class HomeComponent implements OnInit {
     }
     return  sum
   }
-
-   filter(phase){
-    this.displayData = this.DataList.filter(data => data.phase === phase )
-  }
-
+    onSubmit(){
+      this.displayData = this.DataList.filter(data => 
+        data.phase == this.Form.value.phase || 
+        data.month == this.Form.value.month 
+      )
+    }
+  
   onSearch(value:string){
     console.log(value);
    let texto = value.toLowerCase()
    for(let data of this.DataList){
      let name = data.supplierName.toLowerCase()
      if(name.indexOf(texto) != -1){
-       console.log(name);
+       texto = name
+       return texto
      }
    }
+   this.displayData = this.DataList.filter(data => data.supplierName == texto)
   }
 }
